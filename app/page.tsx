@@ -1,9 +1,5 @@
 import Header from "@/app/Header";
 import HeroSection from "@/app/HeroSection";
-import SkillsSection from "@/app/SkillsSection";
-import EmploymentHistory from "@/app/EmploymentHistory";
-import ContactSection from "@/app/ContactSection";
-import Footer from "@/app/Footer";
 
 export default function Home() {
     return (
