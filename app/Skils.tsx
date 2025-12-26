@@ -3,50 +3,35 @@
 import React from 'react';
 import Image from "next/image";
 
-// کامپوننت داخلی برای نمایش لوگوی نرم‌افزارها
-// این کامپوننت لوگوهای ادوبی را با متن و بقیه را با SVG می‌سازد تا نیازی به فایل عکس نباشد
-const SkillIcon = ({ color, label, className }: { type: 'adobe' | 'svg'; color: string; label?: string; className?: string }) => {
+// کامپوننت داخلی آیکون
+const SkillIcon = ({ label, color, className }: { type: 'adobe' | 'svg'; color?: string; label?: string; className?: string }) => {
     return (
-        <div className={`flex items-center justify-center w-14 h-14 rounded-xl bg-[#202020] backdrop-blur-md border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.5)] `}>
-
-                <div className="w-9 h-9" style={{ color: color }}>
-                    {label === 'figma' && (
-                        <Image src={"/skills/figma.png"} alt={"figma"} width={35.28} height={35.28}/>
-                    )}
-                    {label === 'html' && (
-                        <Image src={"/skills/html.png"} alt={"html"} width={35.28} height={35.28}/>
-                    )}
-                    {label === 'css' && (
-                        <Image src={"/skills/css.png"} alt={"css"} width={35.28} height={35.28}/>
-                    )}
-                    {label === 'ai' && (
-                        <Image src={"/skills/Ai.png"} alt={"Ai"} width={35.28} height={35.28}  className={"rounded-lg"}/>
-                    )}
-                    {label === 'ae' && (
-                        <Image src={"/skills/Ae.png"} alt={"Ae"} width={35.28} height={35.28}/>
-                    )}
-                    {label === 'pr' && (
-                        <Image src={"/skills/pr.png"} alt={"pr"} width={35.28} height={35.28}/>
-                    )}
-                    {label === 'ps' && (
-                        <Image src={"/skills/ps.png"} alt={"ps"} width={35.28} height={35.28}/>
-                    )}
-                </div>
+        <div className={`flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-[#202020] backdrop-blur-md border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-110 ${className}`}>
+            <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center" style={{ color: color }}>
+                {/* اطمینان از وجود فایل‌ها در پوشه public/skills/ */}
+                {label === 'figma' && <Image src="/skills/figma.png" alt="figma" fill className="object-contain" />}
+                {label === 'html' && <Image src="/skills/html.png" alt="html" fill className="object-contain" />}
+                {label === 'css' && <Image src="/skills/css.png" alt="css" fill className="object-contain" />}
+                {label === 'ai' && <Image src="/skills/Ai.png" alt="Ai" fill className="object-contain rounded-md" />}
+                {label === 'ae' && <Image src="/skills/Ae.png" alt="Ae" fill className="object-contain" />}
+                {label === 'pr' && <Image src="/skills/pr.png" alt="pr" fill className="object-contain" />}
+                {label === 'ps' && <Image src="/skills/ps.png" alt="ps" fill className="object-contain" />}
+            </div>
         </div>
     );
 };
 
-// کامپوننت نوار پیشرفت تکی
+// کامپوننت نوار پیشرفت
 const ProgressBar = ({ title, percentage }: { title: string; percentage: number }) => {
     return (
-        <div className="mb-6">
-            <div className="flex justify-between items-end mb-2">
-                <span className="text-white font-medium text-lg">{title}</span>
-                <span className="text-gray-400 text-sm">{percentage}%</span>
+        <div className="mb-6 w-full">
+            <div className="flex justify-between items-end mb-2 px-1">
+                <span className="text-white font-medium text-sm md:text-base tracking-wide">{title}</span>
+                <span className="text-gray-400 text-xs md:text-sm font-mono">{percentage}%</span>
             </div>
-            <div className="w-full bg-[#1c1c1c] rounded-full h-4 border border-[#2A2A2A] p-1">
+            <div className="w-full bg-[#1c1c1c] rounded-full h-3 border border-[#2A2A2A] p-[2px]">
                 <div
-                    className="bg-[#5B6CFF] h-1.5 rounded-full"
+                    className="bg-[#5B6CFF] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(91,108,255,0.4)]"
                     style={{ width: `${percentage}%` }}
                 ></div>
             </div>
@@ -56,57 +41,57 @@ const ProgressBar = ({ title, percentage }: { title: string; percentage: number 
 
 export default function SkillsSection() {
     return (
-        <section className="relative w-full py-20 px-4 md:px-0  text-white overflow-hidden">
+        <section className="relative w-full py-16 md:py-24 px-4 md:px-6 text-white overflow-hidden" id="skills">
             <div className="container mx-auto max-w-6xl">
 
-                {/* Title */}
-                <span
-                    className="px-18 py-2 bg-[#202020] rounded-full text-gray-300 border border-white/10 text-xl font-medium ">
-            Skills
-          </span>
+                {/* Title Container */}
+                <div className="flex justify-center w-full mb-12 md:mb-20">
+                    <span className="px-8 py-2 bg-[#202020] rounded-full text-gray-300 border border-white/10 text-base md:text-lg font-medium shadow-lg backdrop-blur-sm">
+                        Skills
+                    </span>
+                </div>
 
-                {/* Floating Icons Area */}
-                {/* ما اینجا از پوزیشن‌های دستی استفاده می‌کنیم تا دقیقاً شکل موج‌دار تصویر را بازسازی کنیم */}
-                <div className="relative h-40 w-full my-10 hidden md:block">
-                    {/* Figma - Left */}
-                    <div className="absolute left-10 top-10">
-                        <SkillIcon type="svg" label="figma" color="" className="opacity-80 blur-[1px]" />
+                {/* ================= MOBILE ICONS (Grid Layout) ================= */}
+                {/* در موبایل آیکون‌ها به صورت یک شبکه منظم نمایش داده می‌شوند */}
+                <div className="md:hidden flex flex-wrap justify-center gap-4 mb-12">
+                    <SkillIcon type="svg" label="figma" />
+                    <SkillIcon type="adobe" label="ai" />
+                    <SkillIcon type="adobe" label="ae" />
+                    <SkillIcon type="adobe" label="pr" />
+                    <SkillIcon type="adobe" label="ps" />
+                    <SkillIcon type="svg" label="html" />
+                    <SkillIcon type="svg" label="css" />
+                </div>
+
+                {/* ================= DESKTOP ICONS (Wave Layout) ================= */}
+                {/* این بخش فقط در دسکتاپ نمایش داده می‌شود تا چیدمان موجی خراب نشود */}
+                <div className="relative h-48 w-full mb-16 hidden md:block select-none">
+                    {/* استفاده از درصد برای پوزیشن‌ها جهت ریسپانسیو بودن در سایزهای مختلف مانیتور */}
+                    <div className="absolute left-[2%] top-10 hover:-translate-y-2 transition-transform duration-300">
+                        <SkillIcon type="svg" label="figma" className="opacity-80 blur-[0.5px]" />
                     </div>
-
-                    {/* Ai - Orange */}
-                    <div className="absolute left-[20%] top-20">
+                    <div className="absolute left-[16%] top-24 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="ai" color="#ff9a00" />
                     </div>
-
-                    {/* Ae - Purple */}
-                    <div className="absolute left-[35%] top-5">
+                    <div className="absolute left-[30%] top-5 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="ae" color="#dcb6fa" />
                     </div>
-
-                    {/* Pr - Dark Purple/Blue */}
-                    <div className="absolute left-[50%] top-24">
+                    <div className="absolute left-[45%] top-28 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="pr" color="#9999ff" />
                     </div>
-
-                    {/* Ps - Blue */}
-                    <div className="absolute left-[65%] top-8">
+                    <div className="absolute left-[60%] top-8 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="ps" color="#31a8ff" />
                     </div>
-
-                    {/* HTML - Orange Shield */}
-                    <div className="absolute left-[80%] top-20">
-                        <SkillIcon type="svg" label="html" color="" />
+                    <div className="absolute left-[75%] top-24 hover:-translate-y-2 transition-transform duration-300">
+                        <SkillIcon type="svg" label="html" />
                     </div>
-
-                    {/* CSS - Blue Shield */}
-                    <div className="absolute right-10 top-5">
-                        <SkillIcon type="svg" label="css" color="" />
+                    <div className="absolute right-[2%] top-5 hover:-translate-y-2 transition-transform duration-300">
+                        <SkillIcon type="svg" label="css" />
                     </div>
                 </div>
 
-                {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-4">
-
+                {/* ================= SKILLS PROGRESS BARS ================= */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-2 md:gap-y-6 w-full max-w-5xl mx-auto">
                     {/* Left Column */}
                     <div>
                         <ProgressBar title="Figma" percentage={90} />
@@ -122,8 +107,8 @@ export default function SkillsSection() {
                         <ProgressBar title="Adobe photoshop" percentage={70} />
                         <ProgressBar title="Adobe premiere" percentage={70} />
                     </div>
-
                 </div>
+
             </div>
         </section>
     );

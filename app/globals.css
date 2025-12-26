@@ -1,10 +1,43 @@
 @import "tailwindcss";
 
-
-
+:root {
+  --background: #101010;
+  --foreground: #ffffff;
+  --primary: #5B6CFF; /* رنگ آبی اصلی برند شما */
+}
 
 body {
-  background: #101010;
+  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* استفاده از فونت تعریف شده در layout */
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   Custom Scrollbar (برای زیبایی بیشتر در دسکتاپ)
+   ========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5B6CFF; /* رنگ آبی برند هنگام هاور */
+}
+
+/* حذف اسکرول‌بار پیش‌فرض در جاهایی که کلاس hide-scrollbar دارند */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

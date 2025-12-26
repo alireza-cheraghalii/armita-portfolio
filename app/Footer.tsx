@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Instagram, Linkedin, Dribbble, ChevronUp } from 'lucide-react';
+import { Instagram, Linkedin, Dribbble } from 'lucide-react';
 import Image from "next/image";
 
-// Behance Icon (Custom SVG since it's not in standard Lucide sets sometimes)
+// Behance Icon
 const BehanceIcon = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
         <path d="M22 7H18V9H22V7Z" />
@@ -23,26 +23,21 @@ const navLinks = [
 ];
 
 export default function Footer() {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
     return (
-        <footer className="w-full  py-10 flex flex-col items-center justify-center px-4 relative">
+        <footer className="w-full py-10 flex flex-col items-center justify-center px-4 relative">
 
             {/* Footer Container - The Capsule */}
-            <div className="relative w-full max-w-[1240px] bg-[#101010] rounded-3xl px-24 py-10 flex items-center justify-between">
-
+            <div className="relative w-full max-w-[1240px] bg-[#101010] rounded-2xl md:rounded-3xl px-6 md:px-24 py-6 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
 
                 {/* Left: Logo */}
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center">
-                        <Image src={"/logo.png"} alt={"Logo"} width={40} height={40}/>
+                        <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10" />
                     </Link>
                 </div>
 
                 {/* Center: Navigation Links (Hidden on mobile for space, visible on md+) */}
-                <nav className="hidden md:flex items-center gap-6 lg:gap-8 flex-1 px-4">
+                <nav className="hidden md:flex items-center gap-6 lg:gap-8 flex-1 px-4 justify-center">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
@@ -58,23 +53,15 @@ export default function Footer() {
 
                 {/* Right: Social Icons Pill */}
                 <div className="bg-[#1C1C1C] rounded-full px-5 py-2.5 flex items-center gap-5">
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors">
-                        <Dribbble size={18} />
-                    </a>
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors">
-                        <Instagram size={18} />
-                    </a>
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors">
-                        <BehanceIcon className="w-[18px] h-[18px]" />
-                    </a>
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors">
-                        <Linkedin size={18} />
-                    </a>
+                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Dribbble size={18} /></a>
+                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Instagram size={18} /></a>
+                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><BehanceIcon className="w-[18px] h-[18px]" /></a>
+                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Linkedin size={18} /></a>
                 </div>
 
             </div>
 
-            {/* Mobile Disclaimer (Optional) */}
+            {/* Mobile Disclaimer */}
             <div className="md:hidden mt-6 text-gray-500 text-xs text-center">
                 © 2025 All rights reserved.
             </div>
