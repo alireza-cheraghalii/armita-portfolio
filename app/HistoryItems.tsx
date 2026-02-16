@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 
 const historyItems = [
-    { id: 1, company: 'Sadad PSP', date: 'present - 2024', logoLetter: 'S', logoColor: 'text-blue-500' },
-    { id: 2, company: 'Kadoona', date: 'Apr 2024-Nov 2024', logoLetter: 'K', logoColor: 'text-purple-500' },
-    { id: 3, company: 'Asan Pardakht PSP', date: 'Des 2022-Nov 2024', logoLetter: 'A', logoColor: 'text-red-500' },
-    { id: 4, company: 'Mobin one kish', date: 'Nov 2021-Dec 2022', logoLetter: 'M', logoColor: 'text-orange-500' },
-    { id: 5, company: 'Negin Rayan Satrap',description:"Product Design:Designed user interfaces for order kiosk software, POS web application, and Android POS application, ensuring smooth user experience across platforms.Increase website traffic, sales, and engagement with target marketCreated digital menus and websites that effectively communicate product offerings and enhance customer engagement.Designed visually appealing catalogs, brochures, and software tutorial videos to effectively communicate information and enhance user experience.Reduce training costs through software tutorial videos", date: 'Des 2022-Nov 2024', logoLetter: 'N', logoColor: 'text-cyan-500' },
-    { id: 6, company: 'Ben Ice',description:"", date: 'Apr 2024-Nov 2024', logoLetter: 'B', logoColor: 'text-green-500' },
+    { id: 1, company: 'Sadad PSP', date: 'present - 2024', logo: '/company/Sadad.png'},
+    { id: 2, company: 'Kadoona', date: 'Apr 2024-Nov 2024', logo: '/company/kadona.png'},
+    { id: 3, company: 'Asan Pardakht PSP', date: 'Des 2022-Nov 2024', logo: '/company/ap.png'},
+    { id: 4, company: 'Mobin one kish', date: 'Nov 2021-Dec 2022', logo: '/company/mobin-one.png'},
+    { id: 5, company: 'Negin Rayan Satrap',description:"Product Design:Designed user interfaces for order kiosk software, POS web application, and Android POS application, ensuring smooth user experience across platforms.Increase website traffic, sales, and engagement with target marketCreated digital menus and websites that effectively communicate product offerings and enhance customer engagement.Designed visually appealing catalogs, brochures, and software tutorial videos to effectively communicate information and enhance user experience.Reduce training costs through software tutorial videos", date: 'Des 2022-Nov 2024', logo: 'company/satrap.png' },
+    { id: 6, company: 'Ben Ice',description:"", date: 'Apr 2024-Nov 2024', logo: '/company/ben_ice.png'},
 ];
 
 const companyLogos = [
@@ -104,8 +104,8 @@ function JobCard({ item }: { item: any }) {
                 className="p-4 flex items-center justify-between cursor-pointer bg-[#0f0f0f] relative z-10"
             >
                 <div className="flex items-center gap-3 md:gap-4 overflow-hidden">
-                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
-                        <span className={`font-bold text-lg ${item.logoColor}`}>{item.logoLetter}</span>
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden">
+                        <img src={item.logo} alt={item.company}  width={"36px"} height={"36px"}/>
                     </div>
                     <div className="min-w-0">
                         <h3 className="text-gray-200 font-semibold text-sm md:text-base leading-tight group-hover:text-white transition-colors truncate">
