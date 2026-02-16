@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 
 // کامپوننت داخلی آیکون
 const SkillIcon = ({ label, color, className }: { type: 'adobe' | 'svg'; color?: string; label?: string; className?: string }) => {
@@ -10,6 +12,7 @@ const SkillIcon = ({ label, color, className }: { type: 'adobe' | 'svg'; color?:
             <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center" style={{ color: color }}>
                 {/* اطمینان از وجود فایل‌ها در پوشه public/skills/ */}
                 {label === 'figma' && <Image src="/skills/figma.png" alt="figma" fill className="object-contain" />}
+                {label === 'xd' && <Image src="/skills/xd.png" alt="figma" fill className="object-contain" />}
                 {label === 'html' && <Image src="/skills/html.png" alt="html" fill className="object-contain" />}
                 {label === 'css' && <Image src="/skills/css.png" alt="css" fill className="object-contain" />}
                 {label === 'ai' && <Image src="/skills/Ai.png" alt="Ai" fill className="object-contain rounded-md" />}
@@ -29,15 +32,23 @@ const ProgressBar = ({ title, percentage }: { title: string; percentage: number 
                 <span className="text-white font-medium text-sm md:text-base tracking-wide">{title}</span>
                 <span className="text-gray-400 text-xs md:text-sm font-mono">{percentage}%</span>
             </div>
-            <div className="w-full bg-[#1c1c1c] rounded-full h-3 border border-[#2A2A2A] p-[2px]">
-                <div
-                    className="bg-[#5B6CFF] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(91,108,255,0.4)]"
-                    style={{ width: `${percentage}%` }}
-                ></div>
+            <div className="w-full bg-[#1c1c1c] rounded-full h-3 border border-[#2A2A2A] p-[2px] overflow-hidden">
+                <motion.div
+                    className="bg-[#5B6CFF] h-full rounded-full shadow-[0_0_10px_rgba(91,108,255,0.4)]"
+                    // حالت اولیه: عرض صفر
+                    initial={{ width: 0 }}
+                    // وقتی در ویوپورت دیده شد: عرض برابر با درصد
+                    whileInView={{ width: `${percentage}%` }}
+                    // تنظیمات انیمیشن
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    // انیمیشن فقط یکبار اجرا شود (با اسکرول بالا و پایین ریست نشود)
+                    viewport={{ once: true, margin: "-50px" }}
+                />
             </div>
         </div>
     );
 };
+
 
 export default function SkillsSection() {
     return (
@@ -55,6 +66,7 @@ export default function SkillsSection() {
                 {/* در موبایل آیکون‌ها به صورت یک شبکه منظم نمایش داده می‌شوند */}
                 <div className="md:hidden flex flex-wrap justify-center gap-4 mb-12">
                     <SkillIcon type="svg" label="figma" />
+                    <SkillIcon type="svg" label="xd" />
                     <SkillIcon type="adobe" label="ai" />
                     <SkillIcon type="adobe" label="ae" />
                     <SkillIcon type="adobe" label="pr" />
@@ -65,27 +77,30 @@ export default function SkillsSection() {
 
                 {/* ================= DESKTOP ICONS (Wave Layout) ================= */}
                 {/* این بخش فقط در دسکتاپ نمایش داده می‌شود تا چیدمان موجی خراب نشود */}
-                <div className="relative h-48 w-full mb-16 hidden md:block select-none">
+                <div className="relative h-48 w-full mb-16 hidden md:flex justify-between select-none">
                     {/* استفاده از درصد برای پوزیشن‌ها جهت ریسپانسیو بودن در سایزهای مختلف مانیتور */}
-                    <div className="absolute left-[2%] top-10 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="-mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="svg" label="figma" className="opacity-80 blur-[0.5px]" />
                     </div>
-                    <div className="absolute left-[16%] top-24 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="mt-10 hover:-translate-y-2 transition-transform duration-300">
+                        <SkillIcon type="adobe" label="xd" color="#ff9a00" />
+                    </div>
+                    <div className="-mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="ai" color="#ff9a00" />
                     </div>
-                    <div className="absolute left-[30%] top-5 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="ae" color="#dcb6fa" />
                     </div>
-                    <div className="absolute left-[45%] top-28 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="-mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="pr" color="#9999ff" />
                     </div>
-                    <div className="absolute left-[60%] top-8 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="adobe" label="ps" color="#31a8ff" />
                     </div>
-                    <div className="absolute left-[75%] top-24 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="-mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="svg" label="html" />
                     </div>
-                    <div className="absolute right-[2%] top-5 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="svg" label="css" />
                     </div>
                 </div>

@@ -8,26 +8,28 @@ type Project = {
     id: number;
     title: string;
     category: string;
-    type: 'App' | 'Website & Dashboard' | 'Graphic Design';
+    type: 'App' | 'Website' | 'Dashboard & IPG'|"Design System";
     image: string;
 };
 
 const projects: Project[] = [
-    { id: 1, title: 'AP IPG', category: 'Payment Methode', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 2, title: 'iva App', category: 'Payment Application', type: 'App', image: '/sample.png' },
-    { id: 3, title: 'AP IPG', category: 'Payment Methode', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 4, title: 'Kadoona', category: 'Website and Web Application', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 5, title: 'AP App', category: 'Merchant Support System', type: 'App', image: '/sample.png' },
-    { id: 6, title: 'Sadad', category: 'Design System', type: 'Graphic Design', image: '/sample.png' },
-    { id: 7, title: 'Kadoona', category: 'Website and Web Application', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 8, title: 'Sadad IPG', category: 'Payment Methode', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 9, title: 'Shahin', category: 'Power BI', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 10, title: 'Work Ap', category: 'Dashboard', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 11, title: 'Goldom', category: 'Website Design', type: 'Website & Dashboard', image: '/sample.png' },
-    { id: 12, title: 'Satrap', category: 'Design System', type: 'Graphic Design', image: '/sample.png' },
+    { id: 1, title: 'AP IPG', category: 'Payment Methode', type: 'Dashboard & IPG', image: '/works/AP IPG.jpg' },
+    { id: 2, title: 'Iva App', category: 'Payment Application', type: 'App', image: '/works/iva App.jpg' },
+    { id: 3, title: 'Kadona', category: 'Website and Web Application', type: 'Website', image: '/works/Kadoona.jpg' },
+    { id: 4, title: 'Ap App', category: 'Merchant Support System', type: 'App', image: '/works/AP App.jpg' },
+    { id: 5, title: 'Sadad', category: 'Design System', type: 'Design System', image: '/works/Sadad.jpg' },
+    { id: 6, title: 'Sadad IPG', category: 'Payment Method', type: 'Dashboard & IPG', image: '/works/Sadad IPG.jpg' },
+    { id: 7, title: 'Shahin', category: 'Power BI', type: 'Dashboard & IPG', image: '/works/Shahin.jpg' },
+    { id: 8, title: 'Work Ap', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/Work Ap.jpg' },
+    { id: 9, title: 'Goldom', category: 'Website Design', type: 'Website', image: '/works/Goldom.jpg' },
+    { id: 10, title: 'Satrap', category: 'Design System', type: 'Design System', image: '/works/Satrap.jpg' },
+    { id: 11, title: '195', category: 'Website Design', type: 'Website', image: '/works/02.jpg' },
+    { id: 12, title: 'Zarine', category: 'Website Design', type: 'Website', image: '/works/Zarine.jpg' },
+    { id: 13, title: '195', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/03.jpg' },
+    { id: 14, title: '195', category: 'Design System', type: 'Design System', image: '/works/01.jpg' },
 ];
 
-const tabs = ['All', 'App', 'Website & Dashboard', 'Graphic Design'];
+const tabs = ['All', 'App', 'Website','Dashboard & IPG', 'Design System'];
 
 export default function PortfolioSection() {
     const [activeTab, setActiveTab] = useState('All');
@@ -37,12 +39,12 @@ export default function PortfolioSection() {
         : projects.filter(project => project.type === activeTab);
 
     return (
-        <section className="py-16 md:py-24 px-4 min-h-screen" id="portfolio">
+        <section className="py-16 md:py-24 px-4 min-h-screen" id="works">
             <div className="max-w-[1240px] mx-auto">
 
                 {/* Header Section */}
                 <div className="flex flex-col items-center mb-10 space-y-4 text-center">
-                    <span className="px-6 py-2 bg-[#1a1a1a] rounded-full text-gray-300 border border-white/10 text-sm font-medium">
+                    <span className="px-6 py-2 bg-[#1a1a1a] rounded-full text-gray-300 border border-white/10 text-sm lg:text-xl font-medium">
                         My Latest Work
                     </span>
                     <h2 className="text-2xl md:text-4xl font-bold text-indigo-400 leading-snug">
@@ -58,7 +60,7 @@ export default function PortfolioSection() {
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`
-                                px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap
+                                px-4 py-2 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                 ${activeTab === tab
                                 ? 'bg-[#6366f1] text-white shadow-[0_0_15px_rgba(99,102,241,0.4)] scale-105'
                                 : 'bg-white text-black hover:bg-gray-200'}

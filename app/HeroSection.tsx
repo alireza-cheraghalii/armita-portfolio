@@ -16,8 +16,8 @@ export default function HeroSection() {
         <section className="bg-[#101010] min-h-screen pt-64 md:pt-96 px-2 md:px-4 flex justify-center overflow-x-hidden">
 
             {/* کانتینر اصلی خاکستری رنگ با گوشه‌های گرد */}
-            <div className="relative w-full max-w-[1400px] bg-[#171717] rounded-t-[60px] md:rounded-t-[600px] lg:rounded-t-[500px] pt-0 pb-12 px-4 md:px-10 text-center shadow-2xl border-t border-white/5">
-
+            <div className="relative w-full max-w-[1400px] bg-[#171717] rounded-t-[60px] md:rounded-t-[600px] lg:rounded-t-[650px] pt-0 pb-12 px-4 md:px-10 text-center shadow-2xl border-t border-white/5">
+                <div id={"home"}>
                 {/* بخش تصویر پروفایل و Hello - با مارجین منفی به بالا کشیده شده */}
                 <div className="relative z-10 flex flex-col items-center -mt-20 md:-mt-60 mb-8">
                     {/* قاب عکس */}
@@ -33,10 +33,13 @@ export default function HeroSection() {
                     </div>
 
                     {/* بج Hello */}
+                    <div className={"relative w-fit"}>
+                        <img className={"absolute -top-7 -right-2 bg-red"} src={"/hello.svg"} alt={"hello"}/>
                     <span
                         className="mt-6 px-6 py-2 bg-[#1a1a1a] rounded-full text-base font-medium text-[#F5F5F5] border border-white/10 shadow-lg">
                         Hello
                     </span>
+                    </div>
                 </div>
 
                 {/* Main Headline (UI Designer Text) */}
@@ -44,9 +47,10 @@ export default function HeroSection() {
 
                 {/* Portfolio / Hire Me Buttons */}
                 <HeroActionButtons/>
+                </div>
 
                 {/* About Section Container */}
-                <div className="relative z-10 mx-auto mt-20 md:mt-28 max-w-6xl">
+                <div id={"about"} className="relative z-10 mx-auto mt-20 md:mt-28 max-w-6xl">
 
                     {/* About Label */}
                     <div className="flex justify-center mb-8">
@@ -100,7 +104,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* سایر بخش‌ها داخل همین کانتینر خاکستری رندر می‌شوند */}
-                <div className="w-full border-t border-white/5 pt-10">
+                <div className="w-full pt-10">
                     <SkillsSection/>
                     <PortfolioSection/>
                     <EmploymentHistory/>
@@ -115,7 +119,7 @@ export default function HeroSection() {
 // کامپوننت کمکی برای کارت‌های سرویس
 function ServiceCard({icon, title}: { icon: React.ReactNode, title: string }) {
     return (
-        <div className="group flex items-center justify-center md:justify-start gap-4 bg-[#202020] border border-white/5 hover:border-[#5B6CFF]/50 px-6 py-5 rounded-2xl transition-all duration-300 cursor-default hover:bg-[#252525] hover:-translate-y-1 hover:shadow-lg shadow-black/20">
+        <div className="group flex items-center justify-center md:justify-start gap-4 bg-[#202020] border border-white/8 hover:border-[#5B6CFF]/50 px-6 py-5 rounded-full transition-all duration-300 cursor-default hover:bg-[#252525] hover:-translate-y-1 hover:shadow-lg shadow-black/20">
             <div className="opacity-70 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0">
                 {icon}
             </div>
