@@ -139,7 +139,7 @@ export default function EmploymentHistory() {
                 </div>
 
                 {/* Job History List - Split into 2 independent columns */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-start md:mx-20">
 
                     {/* ستون چپ */}
                     <div className="flex flex-col gap-4 md:gap-5">
