@@ -1,9 +1,8 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
 
 const historyItems = [
     {
@@ -79,7 +78,6 @@ const historyItems = [
     }
 ];
 
-
 const companyLogos = [
     { icon: 'ap.png', color: '#dc2626', yOffset: '-translate-y-2' },
     { icon: 'Sadad.svg', color: '#2563eb', yOffset: 'translate-y-8 md:translate-y-12' },
@@ -96,6 +94,13 @@ const companyLogos = [
 ];
 
 export default function EmploymentHistory() {
+    // استیت برای ذخیره ID کارتی که باز است. (اگر null باشد هیچکدام باز نیست)
+    const [openId, setOpenId] = useState<number | null>(null);
+
+    // جدا کردن آیتم‌ها به دو ستون مجزا (آیتم‌های فرد برای سمت چپ، زوج برای سمت راست)
+    const leftColumnItems = historyItems.filter((_, index) => index % 2 === 0);
+    const rightColumnItems = historyItems.filter((_, index) => index % 2 !== 0);
+
     return (
         <section className="py-20 md:py-24 px-4 overflow-hidden relative" id="history">
             <div className="mx-auto relative z-10">
@@ -107,11 +112,10 @@ export default function EmploymentHistory() {
                     </span>
                 </div>
 
-                {/* --- Floating Logos Row --- */}
+                {/* Floating Logos Row */}
                 <div className="relative w-full mb-20 md:mb-32">
-                    {/* اسکرول افقی برای موبایل با پدینگ مناسب در ابتدا و انتها */}
                     <div className="overflow-x-auto pb-6 hide-scrollbar w-full">
-                        <div className="flex flex-nowrap items-center justify-start md:justify-center gap-5  px-4 md:px-10 py-10 min-w-max mx-auto">
+                        <div className="flex flex-nowrap items-center justify-start md:justify-center gap-5 px-4 md:px-10 py-10 min-w-max mx-auto">
                             {companyLogos.map((logo, index) => (
                                 <div
                                     key={index}
@@ -119,7 +123,6 @@ export default function EmploymentHistory() {
                                         w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white rounded-[15px] 
                                         flex items-center justify-center shadow-[0_10px_30px_rgba(255,255,255,0.05)]
                                         hover:scale-110 transition-transform duration-300 cursor-pointer overflow-hidden
-                                        
                                         ${logo.yOffset}
                                     `}
                                 >
@@ -135,11 +138,33 @@ export default function EmploymentHistory() {
                     </div>
                 </div>
 
-                {/* Job History List */}
+                {/* Job History List - Split into 2 independent columns */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-start">
-                    {historyItems.map((item) => (
-                        <JobCard key={item.id} item={item} />
-                    ))}
+
+                    {/* ستون چپ */}
+                    <div className="flex flex-col gap-4 md:gap-5">
+                        {leftColumnItems.map((item) => (
+                            <JobCard
+                                key={item.id}
+                                item={item}
+                                isOpen={openId === item.id}
+                                onToggle={() => setOpenId(openId === item.id ? null : item.id)}
+                            />
+                        ))}
+                    </div>
+
+                    {/* ستون راست */}
+                    <div className="flex flex-col gap-4 md:gap-5">
+                        {rightColumnItems.map((item) => (
+                            <JobCard
+                                key={item.id}
+                                item={item}
+                                isOpen={openId === item.id}
+                                onToggle={() => setOpenId(openId === item.id ? null : item.id)}
+                            />
+                        ))}
+                    </div>
+
                 </div>
 
             </div>
@@ -157,39 +182,38 @@ export default function EmploymentHistory() {
     );
 }
 
-function JobCard({ item }: { item: any }) {
-    const [isOpen, setIsOpen] = useState(false);
-
+// اضافه شدن isOpen و onToggle به پراپ‌های کامپوننت فرزند
+function JobCard({ item, isOpen, onToggle }: { item: any, isOpen: boolean, onToggle: () => void }) {
     return (
         <div
             className={`
                 group border rounded-2xl overflow-hidden transition-all duration-300
-                ${isOpen ? 'border-[#6366f1]/50 shadow-lg shadow-indigo-500/10' : 'border-white/9 hover:border-white/10 hover:shadow-lg hover:shadow-indigo-500/5'}
+                ${isOpen ? 'border-[#6366f1]/50 shadow-lg shadow-indigo-500/10' : 'border-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-indigo-500/5'}
             `}
         >
             {/* Header - Clickable Area */}
             <div
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={onToggle}
                 className="p-4 flex items-center justify-between cursor-pointer bg-[#202020] relative z-10"
             >
                 <div className="flex items-center gap-3 md:gap-4 overflow-hidden">
                     <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden">
-                        <img src={item.logo} alt={item.company}  width={"36px"} height={"36px"}/>
+                        <img src={item.logo} alt={item.company} width={"36px"} height={"36px"}/>
                     </div>
                     <div className="min-w-0">
                         <h3 className="text-gray-200 font-semibold text-sm md:text-base leading-tight group-hover:text-white transition-colors truncate">
                             {item.company}
                         </h3>
-                        {/* نمایش نقش (Role) زیر نام کمپانی */}
-                        <p className="text-xs text-gray-500 truncate mt-0.5">{item.role}</p>
+                        {item.role && (
+                            <p className="text-xs text-gray-500 truncate mt-0.5">{item.role}</p>
+                        )}
                     </div>
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
-                    <span className="text-[#667AF8] text-[10px] md:text-base  whitespace-nowrap  px-2 py-1 rounded-md">
+                    <span className="text-[#667AF8] text-[10px] md:text-base whitespace-nowrap px-2 py-1 rounded-md">
                         {item.date}
                     </span>
-                    {/* آیکون با قابلیت چرخش */}
                     <ChevronDown
                         className={`w-4 h-4 text-gray-600 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#6366f1]' : 'group-hover:text-gray-300'}`}
                     />
@@ -207,11 +231,11 @@ function JobCard({ item }: { item: any }) {
                         className="overflow-hidden bg-[#202020]"
                     >
                         <div className="px-4 pb-5 pt-0">
-                            <div className="pt-4">
+                            <div className="pt-4 mt-2">
                                 <ul className="list-disc pl-5 space-y-2 text-gray-300">
-                                    {item.description.map((descLine:string, index:number) => (
+                                    {item.description?.map((descLine: string, index: number) => (
                                         <li key={index} className="text-gray-400 text-sm leading-relaxed text-justify">
-                                            {item.description}
+                                            {descLine}
                                         </li>
                                     ))}
                                 </ul>
