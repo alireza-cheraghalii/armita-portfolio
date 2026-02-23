@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function SocialIconsPill() {
     return (
         /* Social Media Capsule */
-        <div className="flex items-center gap-4 bg-[#1A1A1A] border border-white/10 rounded-full px-6 py-2 shadow-inner">
+        <div className="flex items-center gap-4 bg-[#1A1A1A] border border-white/10 rounded-full px-4 py-2 shadow-inner">
 
             {/* Dribbble Icon */}
             <a href="#" className="group">

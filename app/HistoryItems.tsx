@@ -6,13 +6,79 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 
 const historyItems = [
-    { id: 1, company: 'Sadad PSP', date: 'present - 2024', logo: '/company/Sadad.png'},
-    { id: 2, company: 'Kadoona', date: 'Apr 2024-Nov 2024', logo: '/company/kadona.png'},
-    { id: 3, company: 'Asan Pardakht PSP', date: 'Des 2022-Nov 2024', logo: '/company/ap.png'},
-    { id: 4, company: 'Mobin one kish', date: 'Nov 2021-Dec 2022', logo: '/company/mobin-one.png'},
-    { id: 5, company: 'Negin Rayan Satrap',description:"Product Design:Designed user interfaces for order kiosk software, POS web application, and Android POS application, ensuring smooth user experience across platforms.Increase website traffic, sales, and engagement with target marketCreated digital menus and websites that effectively communicate product offerings and enhance customer engagement.Designed visually appealing catalogs, brochures, and software tutorial videos to effectively communicate information and enhance user experience.Reduce training costs through software tutorial videos", date: 'Des 2022-Nov 2024', logo: 'company/satrap.png' },
-    { id: 6, company: 'Ben Ice',description:"", date: 'Apr 2024-Nov 2024', logo: '/company/ben_ice.png'},
+    {
+        id: 1,
+        company: 'Sadad PSP',
+        date: 'present - 2024',
+        logo: '/company/Sadad.png',
+        description: [
+            "Redesigned the payment gateway to address structural limitations and align the experience with real user needs, simplifying flows and improving transaction efficiency.",
+            "Re-architected dashboards and analytical workflows for the “Shahin” Power BI project (Bank Melli & Sadad), enabling faster data access and more efficient decision-making through role-based customization.",
+            "Contributed to the redesign of the Eva application in alignment with modern UI standards and younger audience preferences.",
+            "Enhanced cross-channel consistency by designing experiences for Pulse app, kiosks, and POS systems within the broader payment ecosystem."
+        ]
+    },
+    {
+        id: 2,
+        company: 'Kadoona',
+        date: 'Apr 2024-Nov 2024',
+        logo: '/company/kadona.png',
+        description: [
+            "Led the website redesign to transform an outdated platform into a comprehensive digital solution aligned with evolving user expectations.",
+            "Introduced customizable gift card design, online charging, and card management features within a streamlined and intuitive interface.",
+            "Reduced dependency on offline processes while increasing accessibility and user engagement through a fully digital experience."
+        ]
+    },
+    {
+        id: 3,
+        company: 'Asan Pardakht PSP',
+        date: 'Des 2022-Nov 2024',
+        logo: '/company/ap.png',
+        description: [
+            "Contributed to the redesign of the payment gateway, simplifying user journeys and reducing friction within the transaction process.",
+            "Designed a merchant support panel to improve task tracking, increase transparency, and accelerate response times between merchants and representatives.",
+            "Structured complex organizational billing and payment workflows within the “WorkAp” system into clear, user-centered interfaces.",
+            "Improved operational usability through the design of POS software focused on efficiency and real-world merchant needs."
+        ]
+    },
+    {
+        id: 4,
+        company: 'Mobin one kish',
+        date: 'Nov 2021-Dec 2022',
+        logo: '/company/mobin-one.png',
+        description: [
+            "Product Design: Developed and launched a user-friendly e-commerce website on WordPress to facilitate POS device sales and introduce company services, streamlining customer experience.",
+            "Content Production: Created a comprehensive suite of marketing materials including catalogs, brochures, banners, and exhibition stand designs, effectively communicating brand identity and product offerings.",
+            "Developed engaging content for Instagram, LinkedIn, and the company website to drive brand awareness and user engagement."
+        ]
+    },
+    {
+        id: 5,
+        company: 'Negin Rayan Satrap',
+        date: 'Des 2022-Nov 2024',
+        logo: '/company/satrap.png',
+        description: [
+            "Product Design: Designed user interfaces for order kiosk software, POS web application, and Android POS application, ensuring smooth user experience across platforms.",
+            "Increased website traffic, sales, and engagement with target market by creating digital menus and websites that effectively communicate product offerings and enhance customer engagement.",
+            "Assistant product manager: Facilitated seamless communication between product and front-end development teams for successful implementation of the Android POS software.",
+            "Utilized Jira to monitor and analyze software activity and performance, identifying areas for improvement.",
+            "Conducted thorough testing of Android POS and restaurant kiosk software for optimal functionality.",
+            "Collaborated with over 10 companies and PSPs to secure contracts for Android POS software implementation."
+        ]
+    },
+    {
+        id: 6,
+        company: 'Ben Ice',
+        date: 'Apr 2024-Nov 2024',
+        logo: '/company/ben_ice.png',
+        description: [
+            "Designed the corporate website and a dedicated B2B sales section to clarify services and strengthen partnership pathways.",
+            "Developed a customer club platform to enhance engagement, support sales campaigns, and build long-term customer loyalty.",
+            "Created Power BI dashboards to monitor branch performance and operational metrics, enabling data-driven strategic decisions at management level."
+        ]
+    }
 ];
+
 
 const companyLogos = [
     { icon: 'ap.png', color: '#dc2626', yOffset: '-translate-y-2' },
@@ -120,7 +186,7 @@ function JobCard({ item }: { item: any }) {
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
-                    <span className="text-[#6366f1] text-[10px] md:text-xs font-medium whitespace-nowrap bg-[#6366f1]/10 px-2 py-1 rounded-md">
+                    <span className="text-[#667AF8] text-[10px] md:text-base  whitespace-nowrap  px-2 py-1 rounded-md">
                         {item.date}
                     </span>
                     {/* آیکون با قابلیت چرخش */}
@@ -142,9 +208,13 @@ function JobCard({ item }: { item: any }) {
                     >
                         <div className="px-4 pb-5 pt-0">
                             <div className="pt-4">
-                                <p className="text-gray-400 text-sm leading-relaxed text-justify">
-                                    {item.description}
-                                </p>
+                                <ul className="list-disc pl-5 space-y-2 text-gray-300">
+                                    {item.description.map((descLine, index) => (
+                                        <li key={index} className="text-gray-400 text-sm leading-relaxed text-justify">
+                                            {item.description}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </motion.div>
