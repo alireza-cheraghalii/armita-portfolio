@@ -55,7 +55,6 @@ export default function Footer() {
                 <div className="bg-[#1C1C1C] rounded-full px-5 py-2.5 flex items-center gap-5">
                     <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Dribbble size={18} /></a>
                     <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Instagram size={18} /></a>
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><BehanceIcon className="w-[18px] h-[18px]" /></a>
                     <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Linkedin size={18} /></a>
                 </div>
 

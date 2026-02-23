@@ -13,20 +13,20 @@ type Project = {
 };
 
 const projects: Project[] = [
-    { id: 1, title: 'AP IPG', category: 'Payment Methode', type: 'Dashboard & IPG', image: '/works/AP IPG.jpg' },
-    { id: 2, title: 'Iva App', category: 'Payment Application', type: 'App', image: '/works/iva App.jpg' },
-    { id: 3, title: 'Kadona', category: 'Website and Web Application', type: 'Website', image: '/works/Kadoona.jpg' },
-    { id: 4, title: 'Ap App', category: 'Merchant Support System', type: 'App', image: '/works/AP App.jpg' },
-    { id: 5, title: 'Sadad', category: 'Design System', type: 'Design System', image: '/works/Sadad.jpg' },
-    { id: 6, title: 'Sadad IPG', category: 'Payment Method', type: 'Dashboard & IPG', image: '/works/Sadad IPG.jpg' },
-    { id: 7, title: 'Shahin', category: 'Power BI', type: 'Dashboard & IPG', image: '/works/Shahin.jpg' },
-    { id: 8, title: 'Work Ap', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/Work Ap.jpg' },
-    { id: 9, title: 'Goldom', category: 'Website Design', type: 'Website', image: '/works/Goldom.jpg' },
-    { id: 10, title: 'Satrap', category: 'Design System', type: 'Design System', image: '/works/Satrap.jpg' },
-    { id: 11, title: '195', category: 'Website Design', type: 'Website', image: '/works/02.jpg' },
-    { id: 12, title: 'Zarine', category: 'Website Design', type: 'Website', image: '/works/Zarine.jpg' },
-    { id: 13, title: '195', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/03.jpg' },
-    { id: 14, title: '195', category: 'Design System', type: 'Design System', image: '/works/01.jpg' },
+    { id: 1, title: 'AP IPG', category: 'Payment Methode', type: 'Dashboard & IPG', image: '/works/AP IPG.svg' },
+    { id: 2, title: 'Iva App', category: 'Payment Application', type: 'App', image: '/works/iva App.svg' },
+    { id: 3, title: 'Kadona', category: 'Website and Web Application', type: 'Website', image: '/works/Kadoona.svg' },
+    { id: 4, title: 'Ap App', category: 'Merchant Support System', type: 'App', image: '/works/AP App.svg' },
+    { id: 5, title: 'Sadad', category: 'Design System', type: 'Design System', image: '/works/Sadad.svg' },
+    { id: 6, title: 'Sadad IPG', category: 'Payment Method', type: 'Dashboard & IPG', image: '/works/Sadad IPG.svg' },
+    { id: 7, title: 'Shahin', category: 'Power BI', type: 'Dashboard & IPG', image: '/works/Shahin.svg' },
+    { id: 8, title: 'Work Ap', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/Work Ap.svg' },
+    { id: 9, title: 'Goldom', category: 'Website Design', type: 'Website', image: '/works/Goldom.svg' },
+    { id: 10, title: 'Satrap', category: 'Design System', type: 'Design System', image: '/works/Satrap.svg' },
+    { id: 11, title: '195', category: 'Website Design', type: 'Website', image: '/works/02.svg' },
+    { id: 12, title: 'Zarine', category: 'Website Design', type: 'Website', image: '/works/Zarine.svg' },
+    { id: 13, title: '195', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/03.svg' },
+    { id: 14, title: '195', category: 'Design System', type: 'Design System', image: '/works/01.svg' },
 ];
 
 const tabs = ['All', 'App', 'Website','Dashboard & IPG', 'Design System'];
@@ -44,11 +44,12 @@ export default function PortfolioSection() {
 
                 {/* Header Section */}
                 <div className="flex flex-col items-center mb-10 space-y-4 text-center">
-                    <span className="px-6 py-2 bg-[#1a1a1a] rounded-full text-gray-300 border border-white/10 text-sm lg:text-xl font-medium">
+                    <span
+                        className="px-6 py-2 bg-[#1a1a1a] rounded-full text-gray-300 border border-white/10 text-sm lg:text-xl font-medium">
                         My Latest Work
                     </span>
                     <h2 className="text-2xl md:text-4xl font-bold text-indigo-400 leading-snug">
-                        Perfect solution For <br className="md:hidden" /> Digital Experience
+                        Perfect solution For <br className="md:hidden"/> Digital Experience
                     </h2>
                 </div>
 
@@ -74,23 +75,27 @@ export default function PortfolioSection() {
                 {/* Projects Grid */}
                 <motion.div
                     layout
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+                    // ۱. استایل کانتینر اصلی را به فلکس‌باکس با قابلیت رپ شدن و وسط‌چین تغییر دادیم
+                    className="flex flex-wrap justify-center gap-4 md:gap-6"
                 >
                     <AnimatePresence mode='popLayout'>
                         {filteredProjects.map((project) => (
                             <motion.div
                                 key={project.id}
                                 layout
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.3 }}
+                                initial={{opacity: 0, scale: 0.9}}
+                                animate={{opacity: 1, scale: 1}}
+                                exit={{opacity: 0, scale: 0.9}}
+                                transition={{duration: 0.3}}
+
+                                className="w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]"
                             >
-                                <ProjectCard project={project} />
+                                <ProjectCard project={project}/>
                             </motion.div>
                         ))}
                     </AnimatePresence>
                 </motion.div>
+
 
             </div>
         </section>
@@ -98,9 +103,10 @@ export default function PortfolioSection() {
 }
 
 // کامپوننت کارت پروژه (Updated for Next/Image)
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({project}: { project: Project }) {
     return (
-        <div className="group relative bg-[#4f46e5] rounded-3xl overflow-hidden aspect-square flex flex-col cursor-pointer transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(79,70,229,0.3)]">
+        <div
+            className="group relative bg-[#4f46e5] rounded-3xl overflow-hidden aspect-square flex flex-col cursor-pointer transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(79,70,229,0.3)]">
 
             <div className="absolute inset-0 w-full h-full">
                 {/* Use Next.js Image for better performance */}

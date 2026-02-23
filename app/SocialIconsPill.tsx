@@ -18,10 +18,6 @@ export default function SocialIconsPill() {
                 <Image src={"/social/instagram.png"} alt={"instagram"} width={24} height={24}/>
             </a>
 
-            {/* Behance Icon (Custom Path for 'Be') */}
-            <a href="#" className="group">
-                <Image src={"/social/be.png"} alt={"be"} width={24} height={24}/>
-            </a>
 
             {/* LinkedIn Icon (Solid fill style to match image) */}
             <a href="#" className="group">

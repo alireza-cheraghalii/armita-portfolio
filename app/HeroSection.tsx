@@ -71,12 +71,12 @@ export default function HeroSection() {
                     </div>
 
                     {/* Sub-headline */}
-                    <h2 className="text-xl md:text-3xl font-bold text-[#5B6CFF] mb-6">
+                    <h2 className="text-xl md:text-2xl font-bold text-[#5B6CFF] mb-6">
                         Why Hire Me For Your Next Project?
                     </h2>
 
                     {/* Description Text */}
-                    <p className="text-[#b3b3b3] leading-relaxed mb-16 text-sm md:text-lg max-w-4xl mx-auto font-normal px-4">
+                    <p className="text-[#b3b3b3] leading-relaxed mb-16 text-sm md:text-xl max-w-4xl mx-auto font-normal px-4">
                         Highly motivated and results-oriented graphic designer and UI/UX designer with a strong work
                         ethic and a commitment to continuous learning. Currently expanding my skillset through ongoing
                         educational pursuits.
@@ -85,19 +85,19 @@ export default function HeroSection() {
                     {/* Services Cards Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-20">
                         <ServiceCard
-                            icon={<Image src="/services/web-design.png" width={32} height={32} alt="web" className="w-8 h-8"/>}
+                            icon={<Image src="/services/web-design.png" width={40} height={40} alt="web" className="w-10 h-10"/>}
                             title="Web Design"
                         />
                         <ServiceCard
-                            icon={<Image src="/services/mobile-app.png" width={32} height={32} alt="mobile" className="w-8 h-8"/>}
+                            icon={<Image src="/services/mobile-app.png" width={40} height={40} alt="mobile" className="w-10 h-10"/>}
                             title="App Design"
                         />
                         <ServiceCard
-                            icon={<Image src="/services/dashboard.png" width={32} height={32} alt="dashboard" className="w-8 h-8"/>}
+                            icon={<Image src="/services/dashboard.png" width={40} height={40} alt="dashboard" className="w-10 h-10"/>}
                             title="Dashboard & SaaS"
                         />
                         <ServiceCard
-                            icon={<Image src="/services/graphic-design.png" width={32} height={32} alt="graphic" className="w-8 h-8"/>}
+                            icon={<Image src="/services/graphic-design.png" width={40} height={40} alt="graphic" className="w-10 h-10"/>}
                             title="Graphic Design"
                         />
                     </div>
@@ -119,7 +119,7 @@ export default function HeroSection() {
 // کامپوننت کمکی برای کارت‌های سرویس
 function ServiceCard({icon, title}: { icon: React.ReactNode, title: string }) {
     return (
-        <div className="group flex items-center justify-center md:justify-start gap-4 bg-[#202020] border border-white/8 hover:border-[#5B6CFF]/50 px-6 py-5 rounded-full transition-all duration-300 cursor-default hover:bg-[#252525] hover:-translate-y-1 hover:shadow-lg shadow-black/20">
+        <div className="group flex items-center justify-center md:justify-start gap-4 bg-[#202020] border border-white/8 hover:border-[#5B6CFF]/50 px-6 py-4 rounded-full transition-all duration-300 cursor-default hover:bg-[#252525] hover:-translate-y-1 hover:shadow-lg shadow-black/20">
             <div className="opacity-70 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0">
                 {icon}
             </div>

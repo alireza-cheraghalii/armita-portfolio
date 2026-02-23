@@ -77,7 +77,7 @@ export default function SkillsSection() {
 
                 {/* ================= DESKTOP ICONS (Wave Layout) ================= */}
                 {/* این بخش فقط در دسکتاپ نمایش داده می‌شود تا چیدمان موجی خراب نشود */}
-                <div className="relative h-48 w-full mb-16 hidden md:flex justify-between select-none">
+                <div className="relative h-26 w-full mb-16 hidden md:flex justify-center select-none gap-21">
                     {/* استفاده از درصد برای پوزیشن‌ها جهت ریسپانسیو بودن در سایزهای مختلف مانیتور */}
                     <div className="-mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <SkillIcon type="svg" label="figma" className="opacity-80 blur-[0.5px]" />

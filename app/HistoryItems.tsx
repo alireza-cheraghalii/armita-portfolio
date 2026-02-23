@@ -15,15 +15,18 @@ const historyItems = [
 ];
 
 const companyLogos = [
-    { icon: 'river.png', color: '#1e3a8a', yOffset: 'translate-y-0' },
-    { icon: 'ap.png', color: '#dc2626', yOffset: 'translate-y-8 md:translate-y-12' },
-    { icon: 'satrap.png', color: '#06b6d4', yOffset: '-translate-y-2 md:-translate-y-4' },
-    { icon: 'aptel.png', color: '#ef4444', yOffset: 'translate-y-6 md:translate-y-10' },
-    { icon: 'kadona.png', color: '#8b5cf6', yOffset: '-translate-y-4 md:-translate-y-8' },
-    { icon: 'mobin-one.png', color: '#f97316', yOffset: 'translate-y-4 md:translate-y-8' },
-    { icon: 'river.png', color: '#2563eb', yOffset: '-translate-y-2' },
+    { icon: 'ap.png', color: '#dc2626', yOffset: '-translate-y-2' },
+    { icon: 'Sadad.svg', color: '#2563eb', yOffset: 'translate-y-8 md:translate-y-12' },
+    { icon: '195.svg', color: '#f59e0b', yOffset: '-translate-y-2' },
+    { icon: 'aptel.png', color: '#ef4444', yOffset: 'translate-y-8 md:translate-y-12' },
+    { icon: 'river.svg', color: '#1e3a8a', yOffset: '-translate-y-2' },
     { icon: 'ben_ice.png', color: '#22c55e', yOffset: 'translate-y-8 md:translate-y-12' },
-    { icon: 'novin-travel.png', color: '#f59e0b', yOffset: 'translate-y-0' },
+    { icon: 'kadona.png', color: '#8b5cf6', yOffset: '-translate-y-2' },
+    { icon: 'novin-travel.png', color: '#f59e0b', yOffset: 'translate-y-8 md:translate-y-12' },
+    { icon: 'satrap.png', color: '#06b6d4', yOffset: '-translate-y-2' },
+    { icon: 'tiran.svg', color: '#f59e0b', yOffset: 'translate-y-8 md:translate-y-12' },
+    { icon: 'zarine.svg', color: '#f59e0b', yOffset: '-translate-y-2' },
+    { icon: 'mobin-one.png', color: '#f97316', yOffset: 'translate-y-4 md:translate-y-8' },
 ];
 
 export default function EmploymentHistory() {
@@ -47,7 +50,7 @@ export default function EmploymentHistory() {
                                 <div
                                     key={index}
                                     className={`
-                                        w-16 h-16 md:w-25 md:h-25 flex-shrink-0 bg-white rounded-[20px] 
+                                        w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white rounded-[15px] 
                                         flex items-center justify-center shadow-[0_10px_30px_rgba(255,255,255,0.05)]
                                         hover:scale-110 transition-transform duration-300 cursor-pointer overflow-hidden
                                         
@@ -94,14 +97,14 @@ function JobCard({ item }: { item: any }) {
     return (
         <div
             className={`
-                group bg-[#0f0f0f] border rounded-2xl overflow-hidden transition-all duration-300
-                ${isOpen ? 'border-[#6366f1]/50 shadow-lg shadow-indigo-500/10' : 'border-white/5 hover:border-white/10 hover:shadow-lg hover:shadow-indigo-500/5'}
+                group border rounded-2xl overflow-hidden transition-all duration-300
+                ${isOpen ? 'border-[#6366f1]/50 shadow-lg shadow-indigo-500/10' : 'border-white/9 hover:border-white/10 hover:shadow-lg hover:shadow-indigo-500/5'}
             `}
         >
             {/* Header - Clickable Area */}
             <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-4 flex items-center justify-between cursor-pointer bg-[#0f0f0f] relative z-10"
+                className="p-4 flex items-center justify-between cursor-pointer bg-[#202020] relative z-10"
             >
                 <div className="flex items-center gap-3 md:gap-4 overflow-hidden">
                     <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden">
@@ -135,7 +138,7 @@ function JobCard({ item }: { item: any }) {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
+                        className="overflow-hidden bg-[#202020]"
                     >
                         <div className="px-4 pb-5 pt-0">
                             <div className="pt-4">
