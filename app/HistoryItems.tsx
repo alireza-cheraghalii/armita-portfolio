@@ -209,7 +209,7 @@ function JobCard({ item }: { item: any }) {
                         <div className="px-4 pb-5 pt-0">
                             <div className="pt-4">
                                 <ul className="list-disc pl-5 space-y-2 text-gray-300">
-                                    {item.description.map((descLine, index) => (
+                                    {item.description.map((descLine:string, index:number) => (
                                         <li key={index} className="text-gray-400 text-sm leading-relaxed text-justify">
                                             {item.description}
                                         </li>
