@@ -37,12 +37,12 @@ export default function Footer() {
                 </div>
 
                 {/* Center: Navigation Links (Hidden on mobile for space, visible on md+) */}
-                <nav className="hidden md:flex items-center gap-6 lg:gap-8 flex-1 px-4 justify-center">
+                <nav className="hidden md:flex items-center gap-6 lg:gap-8 flex-1 px-4 justify-start">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className={`text-sm font-medium transition-colors duration-300 ${
+                            className={`text-base  font-medium transition-colors duration-300 ${
                                 link.active ? 'text-[#6366f1]' : 'text-gray-400 hover:text-white'
                             }`}
                         >
@@ -53,9 +53,9 @@ export default function Footer() {
 
                 {/* Right: Social Icons Pill */}
                 <div className="bg-[#1C1C1C] rounded-full px-5 py-2.5 flex items-center gap-5">
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Dribbble size={18} /></a>
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Instagram size={18} /></a>
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Linkedin size={18} /></a>
+                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Dribbble size={24} /></a>
+                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Instagram size={24} /></a>
+                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Linkedin size={24} /></a>
                 </div>
 
             </div>

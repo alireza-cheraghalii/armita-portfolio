@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, LinkedinIcon, Send } from 'lucide-react';
+import Image from "next/image";
 
 type FormState = {
     name: string;
@@ -86,7 +87,7 @@ export default function ContactSection() {
                             {/* Phone Item */}
                             <div className="flex items-center gap-4 group">
                                 <div className="w-10 h-10 md:w-12 md:h-12 bg-[#5558e6] rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                    <Phone className="w-5 h-5 md:w-6 md:h-6" />
+                                    <Image src={"/call.svg"} alt={"Call"} width={24} height={24} className={"w-5 h-5 md:w-6 md:h-6"}/>
                                 </div>
                                 <span className="text-gray-300 text-sm md:text-base font-medium tracking-wide">
                                     +989123962608
@@ -96,7 +97,7 @@ export default function ContactSection() {
                             {/* Email Item */}
                             <div className="flex items-center gap-4 group">
                                 <div className="w-10 h-10 md:w-12 md:h-12 bg-[#5558e6] rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                    <Mail className="w-5 h-5 md:w-6 md:h-6" />
+                                    <Image src={"/sms.svg"} alt={"Sms"} width={24} height={24} className={"w-5 h-5 md:w-6 md:h-6"}/>
                                 </div>
                                 <span className="text-gray-300 text-sm md:text-base font-medium tracking-wide break-all">
                                     armitafathi@gmail.com
@@ -106,7 +107,7 @@ export default function ContactSection() {
                             {/* LinkedIn Item */}
                             <div className="flex items-center gap-4 group">
                                 <div className="w-10 h-10 md:w-12 md:h-12 bg-[#5558e6] rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                    <LinkedinIcon className="w-5 h-5 md:w-6 md:h-6" />
+                                    <Image src={"/linkedin.svg"} alt={"Linkedin"} width={24} height={24} className={"w-5 h-5 md:w-6 md:h-6"}/>
                                 </div>
                                 <a
                                     href="https://linkedin.com/in/armitafathi"
