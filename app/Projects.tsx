@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import {ArrowRightSquare, ChevronRight} from "lucide-react";
 
 type Project = {
     id: number;
@@ -13,20 +14,21 @@ type Project = {
 };
 
 const projects: Project[] = [
-    { id: 1, title: 'AP IPG', category: 'Payment Methode', type: 'Dashboard & IPG', image: '/works/AP IPG.svg' },
-    { id: 2, title: 'Iva App', category: 'Payment Application', type: 'App', image: '/works/iva App.svg' },
-    { id: 3, title: 'Kadona', category: 'Website and Web Application', type: 'Website', image: '/works/Kadoona.svg' },
-    { id: 4, title: 'Ap App', category: 'Merchant Support System', type: 'App', image: '/works/AP App.svg' },
-    { id: 5, title: 'Sadad', category: 'Design System', type: 'Design System', image: '/works/Sadad.svg' },
-    { id: 6, title: 'Sadad IPG', category: 'Payment Method', type: 'Dashboard & IPG', image: '/works/Sadad IPG.svg' },
-    { id: 7, title: 'Shahin', category: 'Power BI', type: 'Dashboard & IPG', image: '/works/Shahin.svg' },
-    { id: 8, title: 'Work Ap', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/Work Ap.svg' },
-    { id: 9, title: 'Goldom', category: 'Website Design', type: 'Website', image: '/works/Goldom.svg' },
-    { id: 10, title: 'Satrap', category: 'Design System', type: 'Design System', image: '/works/Satrap.svg' },
-    { id: 11, title: '195', category: 'Website Design', type: 'Website', image: '/works/02.svg' },
-    { id: 12, title: 'Zarine', category: 'Website Design', type: 'Website', image: '/works/Zarine.svg' },
-    { id: 13, title: '195', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/03.svg' },
+    { id: 1, title: 'Kadona', category: 'Website and Web Application', type: 'Website', image: '/works/Kadoona.svg' },
+    { id: 2, title: 'Goldom', category: 'Website Design', type: 'Website', image: '/works/Goldom.svg' },
+    { id: 3, title: '195', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/195.svg' },
+    { id: 4, title: 'Zarine', category: 'Website Design', type: 'Website', image: '/works/Zarine.svg' },
+    { id: 5, title: 'AP IPG', category: 'Payment Methode', type: 'Dashboard & IPG', image: '/works/AP IPG.svg' },
+    { id: 6, title: 'Shahin', category: 'Power BI', type: 'Dashboard & IPG', image: '/works/Shahin.svg' },
+    { id: 7, title: 'Work Ap', category: 'Dashboard', type: 'Dashboard & IPG', image: '/works/Work Ap.svg' },
+    { id: 8, title: 'Iva App', category: 'Payment Application', type: 'App', image: '/works/iva.svg' },
+    { id: 9, title: 'Sadad IPG', category: 'Payment Method', type: 'Dashboard & IPG', image: '/works/Sadad IPG.svg' },
+    { id: 10, title: 'Ap App', category: 'Merchant Support System', type: 'App', image: '/works/AP App.svg' },
+    { id: 11, title: 'Sadad', category: 'Design System', type: 'Design System', image: '/works/Sadad.svg' },
+    { id: 12, title: 'Satrap', category: 'Design System', type: 'Design System', image: '/works/Satrap.svg' },
+    { id: 13, title: 'Sadad POS', category: 'POS Application', type: 'App', image: '/works/sadad-pos.svg' },
     { id: 14, title: '195', category: 'Design System', type: 'Design System', image: '/works/01.svg' },
+    { id: 15, title: '195', category: 'Website Design', type: 'Website', image: '/works/195-web.svg' },
 ];
 
 const tabs = ['All', 'App', 'Website','Dashboard & IPG', 'Design System'];
@@ -120,9 +122,17 @@ function ProjectCard({project}: { project: Project }) {
             </div>
 
             {/* Optional Overlay on Hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <h3 className="text-white font-bold text-lg">{project.title}</h3>
-                <p className="text-gray-200 text-sm">{project.category}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#003B7D] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div className="flex justify-between items-center w-full">
+                    <span className="text-white font-bold text-sm">
+                        Show more
+                    </span>
+
+                    {/* The rounded-square button from your image */}
+                    <div className="w-6 h-6 flex items-center justify-center border-2 border-white rounded-md bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                        <ChevronRight size={20} color="white" strokeWidth={1} />
+                    </div>
+                </div>
             </div>
 
         </div>

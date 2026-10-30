@@ -8,7 +8,7 @@ const historyItems = [
     {
         id: 1,
         company: 'Sadad PSP',
-        date: 'present - 2024',
+        date: '2026 - 2024',
         logo: '/company/Sadad.png',
         description: [
             "Redesigned the payment gateway to address structural limitations and align the experience with real user needs, simplifying flows and improving transaction efficiency.",
@@ -79,8 +79,9 @@ const historyItems = [
 ];
 
 const companyLogos = [
-    { icon: 'ap.png', color: '#dc2626', yOffset: '-translate-y-2' },
-    { icon: 'Sadad.svg', color: '#2563eb', yOffset: 'translate-y-8 md:translate-y-12' },
+    { icon: 'mci.png', color: '#dc2626', yOffset: '-translate-y-2' },
+    { icon: 'ap.png', color: '#dc2626', yOffset: 'translate-y-8 md:translate-y-12' },
+    { icon: 'Sadad.svg', color: '#2563eb', yOffset: '-translate-y-2' },
     { icon: '195.svg', color: '#f59e0b', yOffset: '-translate-y-2' },
     { icon: 'aptel.png', color: '#ef4444', yOffset: 'translate-y-8 md:translate-y-12' },
     { icon: 'river.svg', color: '#1e3a8a', yOffset: '-translate-y-2' },
@@ -115,7 +116,7 @@ export default function EmploymentHistory() {
                 {/* Floating Logos Row */}
                 <div className="relative w-full mb-20 md:mb-32">
                     <div className="overflow-x-auto pb-6 hide-scrollbar w-full">
-                        <div className="flex flex-nowrap items-center justify-start md:justify-center gap-5 px-4 md:px-10 py-10 min-w-max mx-auto">
+                        <div className="flex flex-nowrap items-center justify-start md:justify-center gap-4 px-4 md:px-10 py-10 min-w-max mx-auto">
                             {companyLogos.map((logo, index) => (
                                 <div
                                     key={index}
@@ -123,7 +124,7 @@ export default function EmploymentHistory() {
                                         w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white rounded-[15px] 
                                         flex items-center justify-center shadow-[0_10px_30px_rgba(255,255,255,0.05)]
                                         hover:scale-110 transition-transform duration-300 cursor-pointer overflow-hidden
-                                        ${logo.yOffset}
+                                        ${index%2===0?"-translate-y-2":"translate-y-8 md:translate-y-12"}
                                     `}
                                 >
                                     <img
@@ -137,7 +138,9 @@ export default function EmploymentHistory() {
                         </div>
                     </div>
                 </div>
-
+                <div className={"md:mx-20 mb-4"}>
+                <JobCard item={{company:"Hamrahe Aval (MCI)",date:"present",logo:"/company/mci.png"}} isOpen={openId===88} onToggle={()=>setOpenId(openId === 11 ? null : 11)}/>
+                </div>
                 {/* Job History List - Split into 2 independent columns */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-start md:mx-20">
 
@@ -214,9 +217,9 @@ function JobCard({ item, isOpen, onToggle }: { item: any, isOpen: boolean, onTog
                     <span className="text-[#667AF8] text-[10px] md:text-base whitespace-nowrap px-2 py-1 rounded-md">
                         {item.date}
                     </span>
-                    <ChevronDown
+                    {item.description && <ChevronDown
                         className={`w-4 h-4 text-gray-600 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#6366f1]' : 'group-hover:text-gray-300'}`}
-                    />
+                    />}
                 </div>
             </div>
 

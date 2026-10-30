@@ -110,7 +110,7 @@ export default function SkillsSection() {
                     {/* Left Column */}
                     <div>
                         <ProgressBar title="Figma" percentage={90} />
-                        <ProgressBar title="Wireframing" percentage={100} />
+                        <ProgressBar title="Wireframing & Prototyping" percentage={100} />
                         <ProgressBar title="Design system creation" percentage={100} />
                         <ProgressBar title="CSS/HTML" percentage={80} />
                     </div>
