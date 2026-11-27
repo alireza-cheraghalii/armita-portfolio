@@ -111,7 +111,8 @@ export default function Header() {
                     </div>
 
                     <a
-                        href="/cv.pdf"
+                        href="/PORTFOLIO_ARMITA_FATHI.pdf"
+                        download
                         className="
                             bg-[#5B6CFF] hover:bg-[#4a5ae0]
                             text-white text-sm font-medium

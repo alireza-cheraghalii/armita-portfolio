@@ -52,7 +52,7 @@ const ProgressBar = ({ title, percentage }: { title: string; percentage: number 
 
 export default function SkillsSection() {
     return (
-        <section className="relative w-full py-16 md:py-24 px-4 md:px-6 text-white overflow-hidden" id="skills">
+        <section className="relative w-full py-16 md:py-21 px-4 md:px-6 text-white overflow-hidden" id="skills">
             <div className="container mx-auto max-w-6xl">
 
                 {/* Title Container */}

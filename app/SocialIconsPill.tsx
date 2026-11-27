@@ -14,9 +14,9 @@ export default function SocialIconsPill() {
             </a>
 
             {/* Instagram Icon */}
-            <a href="#" className="group">
+            {/*<a href="#" className="group">
                 <Image src={"/social/instagram.png"} alt={"instagram"} width={24} height={24}/>
-            </a>
+            </a>*/}
 
 
             {/* LinkedIn Icon (Solid fill style to match image) */}

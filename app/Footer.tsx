@@ -55,7 +55,7 @@ export default function Footer() {
                 {/* Right: Social Icons Pill */}
                 <div className="bg-[#1C1C1C] rounded-full px-5 py-2.5 flex items-center gap-5">
                     <a href="https://dribbble.com/armitafathi" className="text-white hover:text-[#6366f1] transition-colors"><Dribbble size={24} /></a>
-                    <a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Instagram size={24} /></a>
+                    {/*<a href="#" className="text-white hover:text-[#6366f1] transition-colors"><Instagram size={24} /></a>*/}
                     <a href="https://www.linkedin.com/in/armitafathi?utm_source=share_via&utm_content=profile&utm_medium=member_ios" className="text-white hover:text-[#6366f1] transition-colors"><Linkedin size={24} /></a>
                 </div>
 
