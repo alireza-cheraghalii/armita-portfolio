@@ -10,8 +10,19 @@ import SkillsSection from "@/app/Skils";
 import PortfolioSection from "@/app/Projects";
 import EmploymentHistory from "@/app/HistoryItems";
 import Courses from "@/app/Courses";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
+    const items = [
+        "User Research & Usability Testing",
+        "Information Architecture",
+        "Interaction Design",
+        "Web Design",
+        "App Design",
+        "Dashboard & saas Desgn",
+        "POS & Kiosk Design",
+        "Graphic Design",
+    ];
     return (
         // این بخش فاصله از هدر را تنظیم می‌کند
         <section
@@ -97,32 +108,20 @@ export default function HeroSection() {
                 <h2 className="text-xl md:text-2xl font-bold text-[#5B6CFF]">
                     Core Product & Design Skills
                 </h2>
-                <div className="flex justify-between items-center gap-4 md:gap-6 overflow-auto pt-4 pb-1
-  [&::-webkit-scrollbar]:h-2">
-                    <ServiceCard
-                        title="User Research & Usability Testing"
-                    />
-                    <ServiceCard
-                        title="Information Architecture"
-                    />
-                    <ServiceCard
-                        title="Interaction Design"
-                    />
-                    <ServiceCard
-                        title="Web Design"
-                    />
-                    <ServiceCard
-                        title="App Design"
-                    />
-                    <ServiceCard
-                        title="Dashboard & saas Desgn"
-                    />
-                    <ServiceCard
-                        title="POS & Kiosk Design"
-                    />
-                    <ServiceCard
-                        title="Graphic Design"
-                    />
+                <div className="overflow-hidden pt-4">
+                    <motion.div
+                        className="flex gap-4 md:gap-6 w-max"
+                        animate={{ x: "-50%" }}
+                        transition={{
+                            duration: 30,
+                            ease: "linear",
+                            repeat: Infinity,
+                        }}
+                    >
+                        {[...items, ...items].map((title, i) => (
+                            <ServiceCard key={i} title={title} />
+                        ))}
+                    </motion.div>
                 </div>
 
                 {/* سایر بخش‌ها داخل همین کانتینر خاکستری رندر می‌شوند */}
